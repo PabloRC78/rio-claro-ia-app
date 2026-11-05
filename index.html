@@ -34,7 +34,7 @@ button{
 
 <textarea id="pregunta" placeholder="Escribe tu pregunta"></textarea>
 
-<br>
+<br><br>
 
 <button onclick="preguntar()">
 Enviar
@@ -43,8 +43,6 @@ Enviar
 <div id="respuesta"></div>
 
 <script>
-    <script>
-
 async function preguntar() {
 
     const pregunta = document.getElementById("pregunta").value;
@@ -67,14 +65,6 @@ async function preguntar() {
     document.getElementById("respuesta").innerHTML =
         datos.respuesta;
 }
-
-</script>
-
-async function preguntar(){
-
-
-
-
 </script>
 
 </body>
