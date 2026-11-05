@@ -43,22 +43,21 @@ Enviar
 <div id="respuesta"></div>
 
 <script>
+    <script>
 
-async function preguntar(){
+async function preguntar() {
 
-    const pregunta =
-        document.getElementById("pregunta").value;
+    const pregunta = document.getElementById("pregunta").value;
 
     const resultado = await fetch(
-        ""https://rio-claro-api-e7h6chg9f8czbyf6.westus3-01.azurewebsites.net/api/chatapi"
-",
+        "https://rio-claro-api-e7h6chg9f8czbyf6.westus3-01.azurewebsites.net/api/chatapi",
         {
-            method:"POST",
-            headers:{
-                "Content-Type":"application/json"
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
             },
-            body:JSON.stringify({
-                pregunta:pregunta
+            body: JSON.stringify({
+                pregunta: pregunta
             })
         }
     );
@@ -68,6 +67,13 @@ async function preguntar(){
     document.getElementById("respuesta").innerHTML =
         datos.respuesta;
 }
+
+</script>
+
+async function preguntar(){
+
+
+
 
 </script>
 
