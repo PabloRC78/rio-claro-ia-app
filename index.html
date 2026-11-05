@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Agente Río Claro</title>
+
+<style>
+body{
+    font-family: Arial;
+    max-width:800px;
+    margin:40px auto;
+    padding:20px;
+}
+textarea{
+    width:100%;
+    height:120px;
+}
+button{
+    padding:10px 20px;
+    margin-top:10px;
+}
+#respuesta{
+    margin-top:20px;
+    padding:15px;
+    border:1px solid #ccc;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Agente Río Claro</h1>
+
+<textarea id="pregunta" placeholder="Escribe tu pregunta"></textarea>
+
+<br>
+
+<button onclick="preguntar()">
+Enviar
+</button>
+
+<div id="respuesta"></div>
+
+<script>
+
+async function preguntar(){
+
+    const pregunta =
+        document.getElementById("pregunta").value;
+
+    const resultado = await fetch(
+        "https://rio-claro-api-e7h6chg9f8czbyf6.westus3-01.azurewebsites.net/api/chatapi",
+        {
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify({
+                pregunta:pregunta
+            })
+        }
+    );
+
+    const datos = await resultado.json();
+
+    document.getElementById("respuesta").innerHTML =
+        datos.respuesta;
+}
+
+</script>
+
+</body>
+</html>
