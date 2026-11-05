@@ -42,5 +42,3 @@ def chatapi(req: func.HttpRequest) -> func.HttpResponse:
             headers=headers
         )
 
-
-    
